@@ -130,8 +130,12 @@ export default {
       let form = new FormData()
       form.append('file',this.fileList[0].file)
 
-      console.log(this.fileList)
-       this.upload({form:form}).then(res=>{
+      console.log(this.fileList[0].file)
+      let params = {
+        // form:form,
+        mydata:'123423'
+      }
+       this.upload(params).then(res=>{
         
       }).catch(()=>{
            //this.fileList = [];

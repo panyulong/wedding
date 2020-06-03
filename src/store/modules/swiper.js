@@ -12,10 +12,9 @@ const mutations = {
 }
 
 const actions = {
-    upload({commit}){
+    upload({commit},params){
         return new Promise((resolve,reject)=>{
-            console.log(124)
-            swiperApi.upload().then(res=>{
+            swiperApi.upload(params).then(res=>{
                console.log(res)
                 resolve(res)
             }).catch(err=>{

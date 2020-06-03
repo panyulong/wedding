@@ -72,7 +72,7 @@ class httpRequest {
       headers: {
         // 'Content-Type': 'application/json; charset=utf-8',
         // 标识为ajax请求
-        'X-Requested-With': 'XMLHttpRequest',
+        // 'X-Requested-With': 'XMLHttpRequest',
       },
       // 携带认证信息，默认为false，这样在跨域请求下session无法获取信息
       withCredentials: true
