@@ -1,4 +1,4 @@
-import {swiperApi} from '@/api/swiperApi'
+import swiperApi from '@/api/swiperApi'
 const state = {
     showUploadBtn:false
 }
@@ -12,16 +12,18 @@ const mutations = {
 }
 
 const actions = {
-    add({commit},params){
+    upload({commit}){
         return new Promise((resolve,reject)=>{
-            swiperApi.search(params).then(res=>{
-                commit('setMyfav',1)
+            console.log(124)
+            swiperApi.upload().then(res=>{
+               console.log(res)
                 resolve(res)
             }).catch(err=>{
                 reject(err)
             })
         })
-    }
+    },
+    
 }
 export default{
     namespaced:true,

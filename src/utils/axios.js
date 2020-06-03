@@ -68,9 +68,9 @@ class httpRequest {
   create () {
     let conf = {
       baseURL: baseURL,
-      // timeout: 2000,
+      timeout: 6000,
       headers: {
-        'Content-Type': 'application/json; charset=utf-8',
+        // 'Content-Type': 'application/json; charset=utf-8',
         // 标识为ajax请求
         'X-Requested-With': 'XMLHttpRequest',
       },

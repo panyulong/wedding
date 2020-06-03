@@ -22,7 +22,7 @@
     </div>
     <div class="text-center btn-group" v-if="showTemp && showUploadBtn && activeIndex!=data.length">
       <van-uploader v-model="fileList" :max-count="currentPersonImg.length" :before-read="beforeRead" :after-read="afterRead" />
-      <van-button icon="photo" type="info" size="small" @click="upload" class="uploadBtn" :loading="uploadLoading"  loading-text="上传中...">上传文件</van-button>
+      <van-button icon="photo" type="info" size="small" @click="uploadbtn" class="uploadBtn" :loading="uploadLoading"  loading-text="上传中...">上传文件</van-button>
     </div>
     <div class="text-center btn-group" v-if="showTemp && showUploadBtn && activeIndex==data.length">
       <van-button  type="info" size="small" @click="shade">分享</van-button>
@@ -81,6 +81,9 @@ export default {
     ...mapMutations({
       setShowUploadBtn: "Swiper/setShowUploadBtn"
     }),
+    ...mapActions({
+      upload:'Swiper/upload'
+    }),
     musicBtn() {
       this.musicPause = !this.musicPause;
       this.musicPause? this.$refs.audio.pause() : this.$refs.audio.play()
@@ -119,16 +122,30 @@ export default {
       // let imgArr = this.data[this.activeIndex] && this.data[this.activeIndex].personImg;
       this.currentPersonImg[detail.index].src = file.content;
     },
-    upload() {
+    uploadbtn() {
       if (this.fileList.length !== this.currentPersonImg.length) {
         return this.$toast("请选择图片");
       }
       this.uploadLoading = true;
-      setTimeout(() => {
-        this.$refs.mySwiper.$swiper.slideNext();
-        this.fileList = [];
+      let form = new FormData()
+      form.append('file',this.fileList[0].file)
+
+      console.log(this.fileList)
+       this.upload({form:form}).then(res=>{
+        
+      }).catch(()=>{
+           //this.fileList = [];
         this.uploadLoading = false;
-      }, 1000);
+      })
+
+
+
+
+      // setTimeout(() => {
+      //   this.$refs.mySwiper.$swiper.slideNext();
+      //   this.fileList = [];
+      //   this.uploadLoading = false;
+      // }, 1000);
     },
     shade(){
       setTimeout(() => {
