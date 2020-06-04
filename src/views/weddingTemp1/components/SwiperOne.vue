@@ -75,38 +75,8 @@ export default {
     bottom:40px;
   }
 .wedding-name{
-  width:84%;
   background: url('/img/weddingTemp1/wedNameB.png') no-repeat center rgba(255, 255, 255, .7);
   background-size: 100% 100%;
-  margin: -40px auto 40px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: @tplOneColor;
-  p{
-    &:nth-of-type(1){
-       letter-spacing: 12px;
-       font-size: 50px;
-       span{
-         &:nth-of-type(2){
-           font-size: 90px;
-         }
-       }
-    }
-     &:nth-of-type(2){
-        font-size: 36px;
-        letter-spacing: 2px;
-        margin-top: 5px;
-       em{
-         font-size: 46px;
-         font-style: normal;
-        
-       }
-
-     }
-  }
 }
 }
   @keyframes zoomRotateIn {

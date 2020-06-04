@@ -43,8 +43,9 @@ export default {
     align-items: center;
      color: @tplOneColor;
       .polygon-box{
-        width:100%;
-        height: 60%;
+        width:100vw;
+        height: 60vh;
+        margin: 5vh auto;
         animation:myZoomInDown 2s linear;
         .photo{
           width:80%;
@@ -53,7 +54,6 @@ export default {
           position: relative;
           transform: rotate(45deg);
           overflow: hidden;
-          
           .item{
             position: absolute;
             width: 100%;

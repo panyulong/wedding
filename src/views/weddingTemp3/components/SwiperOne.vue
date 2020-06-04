@@ -1,90 +1,64 @@
 <template>
-    <div>
-        <div>
-          <!-- <div class="text-frame text-frame-1"></div> -->
-          <!-- <div class="text-frame text-frame-2"></div> -->
-         
-        
-
-          <div class="photo-box box-center">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590400783847&di=473a19a00438bd86c51b047aa0ecce54&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F0ff41bd5ad6eddc467f7213038dbb6fd536633ec.jpg" alt="">
-          
-          
-            <div class="name animated bounceInLeft">
-              <p class="name-p">  pan </p>
-              <p class="name-p"> Welcome </p>
+    <div class="temp-home">
+      <div class="top-part">
+        <div class="con-xingxing"></div>
+         <div class="con-photo">
+          <div class="con-photo-line con-photo-line-1"></div>
+          <div class="con-photo-line con-photo-line-2">
+            <div class="crown"></div>
+             <img  :src="itemObj.personImg[0].src" alt="">
           </div>
-          
-          </div>
-
-
         </div>
-      
+      </div>
+        
+        <div class="wedding-name">
+          <p class="animated slideInLeft">
+            <span>{{itemObj.manName}}</span>
+            <span>&</span>
+            <span>{{itemObj.womenName}}</span>
+          </p>
+        <p class="animated slideInRight">
+          <em>W</em>EDDING&nbsp;<em>I</em>NVITATION
+        </p>
+        </div>
     </div>
 </template>
 
 <script>
+import swiperMixin from '@/mixins/swiperMixin'
 export default {
+  mixins:[swiperMixin],
   data () {
     return {
     }
+  },
+  mounted(){
+   
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    .text-frame {
-    z-index: 2;
-    width: 84%;
-    height: 84%;
-    position: absolute;
-    top:0;
-    left: 0;
-    right:0;
-    bottom: 0;
-    margin: auto;
-    background-color: rgba(255, 255, 255, .4);
-    border: 1px solid #fff;
-    border-radius: 12px;
-    overflow: hidden;
+<style scoped lang="less">
+@import '~@/assets/css/tplThree.less';
+@import '~@/assets/css/tplCommon.less';
+.temp-home{
+  display: flex;
+  flex-direction: column;
+  width:100vw;
+  height:100vh;
+   background: url('/img/weddingTemp2/bg.png') no-repeat center;
+   background-size: 100% 100%;
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-around;
+    align-items: center;
+  .top-part{
+    width:100vw;
+    height: 60vh;
+    margin: 5vh;
+    position: relative;
   }
-  .text-frame-1{
-      animation:rotateIn .6s ease .5s 
-  }
-  .text-frame-2{
-      animation:
-      rotateIn .6s ease 1.1s forwards,
-      pulse 1s ease 1.7s infinite;
-  }
-  .name{
-    position: absolute;
-    bottom:70px;
-    color: #fff;
-    font-size: 30px;
-     width:100%;
-  }
-  .name-p{
-    width:100%;
-    text-align: center;
-  }
-  .photo-box{
-    border: 1px solid sandybrown;
-    width:300px;
-    height: 400px;
-    border-radius:50%/50%;
-    overflow: hidden;
-    animation: zoomRotateIn 4s ease-out;
-  }
-  @keyframes zoomRotateIn {
-    0%{
-      transform: rotateY(0deg) scale(0);
-    }
-     50%{
-      transform: rotateY(-180deg) scale(1.6);
-    }
-    100%{
-      transform: rotateY(0) scale(1);
-    }
-  }
+}
+
 </style>

@@ -59,7 +59,7 @@ export default {
 
   data() {
     return {
-      audioUrl:'https://webfs.yun.kugou.com/202005312303/0950603a1e956141656e8000f6619eb9/G215/M03/14/01/d4cBAF7Qq82AW5KEACfKS3xxbdE305.mp3',
+      audioUrl:'https://webfs.yun.kugou.com/202006042215/ccd58722a528434e7202fd314ddaef42/G206/M08/15/15/Dg4DAF5thB2AMM6sADRYUeWTn6w071.mp3',
       musicPause: true,
       activeIndex: 0,
       swiperOption: {
@@ -203,7 +203,7 @@ export default {
   text-align: center;
   line-height: 80px;
   border-radius: 50%;
-  animation: rotate-turn 1s linear infinite;
+  animation: rotate360 2s linear infinite;
   &::before{
     content: '';
     width:100%;
@@ -229,15 +229,6 @@ export default {
 }
 .pause {
   animation-play-state: paused;
-}
-
-@keyframes rotate-turn {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 @keyframes next-btn {
   0%,30%{

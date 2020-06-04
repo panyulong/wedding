@@ -25,10 +25,6 @@
             <div class="crown"></div>
         </div>
         </div>
-        
-        
-       
-      
     </div>
 </template>
 
@@ -48,7 +44,7 @@ export default {
    @import '~@/assets/css/tplTwo.less'; 
    @import '~@/assets/css/tplCommon.less';
   .tpl-mes{
-    width:100vh;
+    width:100vw;
     height:100vh;
     background: #D7BB93;
     .flower{

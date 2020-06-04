@@ -39,12 +39,7 @@ export default {
     width:100vh;
     height:100vh;
      .rotate-box{
-      position: absolute;
-      z-index: 1;
-      width:calc(100vw - 60px);
-      height: 64vh;
-      margin:18vh 30px;
-      background:#F5E9D2 ;
+      background:#F5E9D2;
       transform: rotate(15deg);
     }
     .tpl-two-flex{
@@ -57,7 +52,7 @@ export default {
       align-items: center;
        color: @tplOneColor;
       .photo{
-        margin: 30px 0 ;
+        margin: 40px 0 ;
         height: 300px;
         animation:myZoomInDown 2s linear;
         img{

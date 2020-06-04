@@ -1,7 +1,7 @@
 <template>
     <div class="tpl-mes">
         <div class="t-o-outBorder"></div>
-         <div class="rotate-box"></div>
+         <div class="rotate-box"></div>  
         <div class="t-o-innerBorder tpl-mes-flex">
             <div class="animated slideInLeft">
               <p>沉浸在幸福中的我们</p>
@@ -41,7 +41,7 @@ export default {
    @import '~@/assets/css/tplOne.less'; 
    @import '~@/assets/css/tplCommon.less';
   .tpl-mes{
-    width:100vh;
+    width:100vw;
     height:100vh;
     background: #D7BB93;
     &-flex{
@@ -58,11 +58,6 @@ export default {
       }
     }
     .rotate-box{
-      position: absolute;
-      z-index: 1;
-      width:calc(100vw - 60px);
-      height: 64vh;
-      margin:18vh 30px;
       background:#E3D2BE ;
       transform: rotate(-15deg);
     }
