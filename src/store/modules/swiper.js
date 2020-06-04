@@ -15,7 +15,6 @@ const actions = {
     upload({commit},params){
         return new Promise((resolve,reject)=>{
             swiperApi.upload(params).then(res=>{
-               console.log(res)
                 resolve(res)
             }).catch(err=>{
                 reject(err)

@@ -40,7 +40,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      showUploadBtn: "Swiper/showUploadBtn"
+      showUploadBtn: "Swiper/showUploadBtn",
+      userId:"User/userId"
     }),
     showTemp() {
       let showTemp = this.$route.query["showTemp"];
@@ -52,6 +53,7 @@ export default {
     },
     currentPersonImg(){
       return this.data[this.activeIndex] && this.data[this.activeIndex].personImg || 0
+      // return 2
     }
   },
 
@@ -127,29 +129,22 @@ export default {
         return this.$toast("请选择图片");
       }
       this.uploadLoading = true;
-      let form = new FormData()
-      form.append('file',this.fileList[0].file)
-
-      console.log(this.fileList[0].file)
-      let params = {
-        // form:form,
-        mydata:'123423'
-      }
-       this.upload(params).then(res=>{
-        
-      }).catch(()=>{
-           //this.fileList = [];
-        this.uploadLoading = false;
-      })
-
-
-
-
-      // setTimeout(() => {
-      //   this.$refs.mySwiper.$swiper.slideNext();
-      //   this.fileList = [];
-      //   this.uploadLoading = false;
-      // }, 1000);
+     let formData = new FormData()
+    for(const item of this.fileList){
+      formData.append('file',item.file)
+    }
+     formData.append('userId',this.userId)
+      this.upload(formData).then(res=>{
+      this.uploadLoading = false;
+      this.$toast(res.msg)
+      setTimeout(()=>{
+        this.fileList = [];
+        this.$refs.mySwiper.$swiper.slideNext();
+      },500)
+    }).catch(()=>{
+      //this.fileList = [];
+      this.uploadLoading = false;
+    })
     },
     shade(){
       setTimeout(() => {
