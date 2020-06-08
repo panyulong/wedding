@@ -48,9 +48,11 @@ import TempChooseS from './components/TempChooseS'
         created(){
         },
         mounted() {  
-               
+   
         },
         methods:{
+        
+            
         }
     }
 </script>

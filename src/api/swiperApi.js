@@ -6,5 +6,19 @@ export default{
             method:'post',
             data:params
         }) 
+    },
+    getUserById(query){
+        return axios.request({
+            url:'/file/queryFile',
+            method:'get',
+            params:query
+        })
+    },
+    createInviteeInfo(query){
+        return axios.request({
+            url:'/inviteeInfo/createInviteeInfo',
+            method:'post',
+            data:query
+        })
     }
 }

@@ -3,13 +3,13 @@
        <van-form @submit="onSubmit">
             <van-field class="animated bounceIn"
               v-model="name"
-              name="姓名"
+              name="name"
               label="NAME 姓名"
               :rules="[{ required: true, message: '请填写用户名' }]"
             />
             <van-field class="animated bounceIn"
-              v-model="phone"
-              name="手机"
+              v-model="tel"
+              name="tel"
               label="MOBILE 手机"
               :rules="[
               { required: true, message: '请填写手机' },
@@ -18,7 +18,7 @@
             />
               <van-field class="animated bounceIn"
               v-model="bless"
-              name="祝福语"
+              name="bless"
               label="BLESS 祝福语" />
             <div class="animated slideInUp">
               <van-button block type="info" native-type="submit">
@@ -33,22 +33,31 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 import swiperMixin from '@/mixins/swiperMixin'
 export default {
    mixins:[swiperMixin],
   data() {
     return {
        name: '',
-        phone: '',
+        tel: '',
         bless:''
     };
   },
    methods:{
+     ...mapActions({
+       createInviteeInfo:'Swiper/createInviteeInfo'
+     }),
     phoneValidator(val){
       return /^1[3456789]\d{9}$/.test(val)
     },
     onSubmit(values) {
       console.log('submit', values);
+      values.tel = Number(values.tel)
+      this.createInviteeInfo(values).then(res=>{
+        this.$toast(res.msg)
+        this.$router.push('/thank')
+      })
     },
   }
 };

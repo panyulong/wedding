@@ -7,7 +7,7 @@
       <swiper-slide class="swiper-slide" v-for="(item,index) in data" :key="index">
         <div v-show="activeIndex==index">
           <!-- <div :class="['my-swiper-bg',item.bgClass]"></div> -->
-          <slot :temp="item.temp" :img="item.personImg" :item="item"></slot>
+          <slot :temp="item.temp" :item="item"></slot>
         </div>
       </swiper-slide>
      <!-- 最后统一都有地址模板-->
@@ -52,8 +52,7 @@ export default {
       return showTemp;
     },
     currentPersonImg(){
-      return this.data[this.activeIndex] && this.data[this.activeIndex].personImg || 0
-      // return 2
+      return this.data[this.activeIndex] && this.data[this.activeIndex].photoArr || 0
     }
   },
 
@@ -79,9 +78,12 @@ export default {
     this.setShowUploadBtn(false);
     this.$refs.mySwiper.$swiper.allowTouchMove = true;
   },
+  mounted(){
+    
+  },
   methods: {
     ...mapMutations({
-      setShowUploadBtn: "Swiper/setShowUploadBtn"
+      setShowUploadBtn: 'Swiper/setShowUploadBtn',
     }),
     ...mapActions({
       upload:'Swiper/upload'
@@ -93,8 +95,11 @@ export default {
     slideChange() {
       this.activeIndex = this.$refs.mySwiper.$swiper.activeIndex;
         // 判断当前页面是否需要上传图片,不需要则直接跳过
-          if(this.showTemp && this.showUploadBtn && !this.currentPersonImg){
-          this.$refs.mySwiper.$swiper.slideNext();
+          if(this.showTemp && this.showUploadBtn){
+            if(!this.currentPersonImg || this.currentPersonImg && this.currentPersonImg.length==0){
+                 this.$refs.mySwiper.$swiper.slideNext();
+            }
+         
         }
     },
     goBack() {
@@ -121,8 +126,7 @@ export default {
       return true;
     },
     afterRead(file,detail) {
-      // let imgArr = this.data[this.activeIndex] && this.data[this.activeIndex].personImg;
-      this.currentPersonImg[detail.index].src = file.content;
+      this.currentPersonImg[detail.index].fileUrl = file.content;
     },
     uploadbtn() {
       if (this.fileList.length !== this.currentPersonImg.length) {
@@ -134,6 +138,7 @@ export default {
       formData.append('file',item.file)
     }
      formData.append('userId',this.userId)
+     formData.append('current',this.activeIndex)
       this.upload(formData).then(res=>{
       this.uploadLoading = false;
       this.$toast(res.msg)
@@ -147,11 +152,11 @@ export default {
     })
     },
     shade(){
+      const pathName = location.pathname;
       setTimeout(() => {
           this.$toast("分享成功");
-          this.$router.push({ path: "/infoAdd" });
+          window.location.href = location.origin + location.pathname + '?userId='+this.userId
       }, 2000);
-  
     },
   }
 };

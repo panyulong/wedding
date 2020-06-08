@@ -21,6 +21,24 @@ const actions = {
             })
         })
     },
+    getUserById({commit},params){
+        return new Promise((resolve,reject)=>{
+            swiperApi.getUserById(params).then(res=>{
+                resolve(res)
+            }).catch(err=>{
+                reject(err)
+            })
+        })
+    },
+    createInviteeInfo({commit},params){
+        return new Promise((resolve,reject)=>{
+            swiperApi.createInviteeInfo(params).then(res=>{
+                resolve(res)
+            }).catch(err=>{
+                reject(err)
+            })
+        })
+    }
     
 }
 export default{

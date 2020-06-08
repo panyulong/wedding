@@ -4,14 +4,14 @@
         <div class="flower-bg animated bounceIn"></div>
         <div class="innerBorder">
             <div class="photo">
-                <img :src="itemObj.personImg[0].src" alt="">
+                <img :src="itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
             </div>
          </div>
         <div class="wedding-name">
           <p class="animated slideInLeft">
-            <span>{{itemObj.manName}}</span>
+            <span>{{wedMes.manName}}</span>
             <span>&</span>
-            <span>{{itemObj.womenName}}</span>
+            <span>{{wedMes.womenName}}</span>
           </p>
         <p class="animated slideInRight">
           <em>W</em>EDDING&nbsp;<em>I</em>NVITATION
@@ -53,7 +53,7 @@ export default {
       height:100%;
       width:100%;
       transform: scale3d(1,1,1) rotateY(0) rotateZ(-15deg);
-      animation: zoomRotateIn 3s ease-out; 
+      animation: zoomRotateIn 3s ease-out .3s; 
     }
   }
  .outBorder{

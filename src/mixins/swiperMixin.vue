@@ -1,8 +1,8 @@
 <script>
 export default {
   props:{
-    imgData:{
-     type:Array
+    wedMes:{
+     type:Object
     },
     itemObj:{
       type:Object

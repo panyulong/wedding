@@ -5,7 +5,7 @@
          <div class="t-o-innerBorder">
             <div class="tpl-two-flex">
                 <div class="photo">
-                    <img :src="itemObj.personImg[0].src" alt="">
+                    <img :src="itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
                 </div>
                   <regis-form class="regis-form"></regis-form>
             </div>
