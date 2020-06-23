@@ -1,16 +1,19 @@
 <template>
    <div>
-      <showCar360degrees :speed = 20  :imgs = imgs></showCar360degrees>
+      <house></house>
+      <!-- <showCar360degrees :speed = 20  :imgs = imgs></showCar360degrees> -->
       <!-- <pano  imgurl = 'https://p9-dcd.byteimg.com/img/mosaic-legacy/bef400005f4eca28e99e~tplv-resize:4000:0.image'></pano> -->
    </div>
 </template>
 
 <script>
-import showCar360degrees  from './components/showCar360degrees'
+// import showCar360degrees  from './components/showCar360degrees'
+import house from './components/house'
 import pano  from './components/pano'
    export default{
       components:{
-         showCar360degrees,
+         // showCar360degrees,
+         house,
          pano
       },
       data(){

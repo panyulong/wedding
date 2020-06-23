@@ -1,6 +1,6 @@
 import Axios from 'axios'
 import { Notify } from 'vant';
-import store from '@/store'
+// import store from '@/store'
 import {getToken} from "@/utils/auth"
 import {token} from '@/const/const'
 
@@ -48,14 +48,14 @@ class httpRequest {
       }
       if(res.status === 401 || res.data.errcode){
         //重新调用授权信息
-        store.dispatch('User/login')
+        // store.dispatch('User/login')
       }
       return data
     }, (error) => {
       if (error.response) {
         if (error.response.status === 401) {
           //重新调用授权信息
-            store.dispatch('User/fedLogout')
+            // store.dispatch('User/fedLogout')
           }
       } else {
         Notify({ type: 'warning', message:error.message });

@@ -1,8 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer') //打包后可视化文件大小
-const CircularDependencyPlugin = require('circular-dependency-plugin') //分离
+const CircularDependencyPlugin = require('circular-dependency-plugin') //循环引用
 const CompressionPlugin = require('compression-webpack-plugin') //gzip压缩
+const TerserPlugin = require('terser-webpack-plugin') //代码压缩，生产环境自动删除console
 const resolve = dir=> path.join(__dirname,dir)
 module.exports = {
   // 基本路径
@@ -32,21 +33,84 @@ module.exports = {
   },
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
-      config.plugins.push(new BundleAnalyzerPlugin())
+      config.plugins.push(
+        new BundleAnalyzerPlugin(),
+        new TerserPlugin({
+          cache:true,
+          parallel:true,
+          sourceMap:true,
+          terserOptions:{
+            compress: {
+                drop_debugger: true,
+                drop_console: true,
+            },
+        }
+      })
+    )         
     }
-    plugins: [
+    // 插件
+    config.plugins.push(
       new CircularDependencyPlugin({
-        exclude: /a\.js|node_modules/,
+        exclude: /node_modules/,
+        include: /src/,
         failOnError: true,
+        allowAsyncCycles: false,
         cwd: process.cwd()
       }),
       new CompressionPlugin({
         // gzip压缩配置
-        test: /\.js$|\.html$|\.css/, // 匹配文件名
-        threshold: 10240, // 对超过244kb的数据进行压缩
-        deleteOriginalAssets: true, // 是否删除原文件
+        // filename: '[path].gz[query]',
+        // algorithm: 'gzip',
+        // test: /\.js$|\.html$|\.css/, // 匹配文件名
+        // threshold: 10240, // 对超过244kb的数据进行压缩
+        // minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
+        // deleteOriginalAssets: true, // 是否删除原文件
       })
-    ]
+    )
+    // Loader-rules为空或没有匹配到打包会报错
+    // config.module = {
+      // rules: [
+          // {
+          //     test: /\.js$/,
+          //     exclude: /node_modules/,
+          //     loader: 'babel-loader'
+          // },
+        // ]
+      // },
+       // 公共代码抽离
+       config.optimization = {
+          splitChunks: {
+              cacheGroups: {
+                  vendor: {
+                      chunks: 'all',
+                      test: /node_modules/,
+                      name: 'vendor',
+                      minChunks: 1,
+                      maxInitialRequests: 5,
+                      minSize: 0,
+                      priority: 100
+                  },
+                  common: {
+                      chunks: 'all',
+                      test: /[\\/]src[\\/]js[\\/]/,
+                      name: 'common',
+                      minChunks: 2,
+                      maxInitialRequests: 5,
+                      minSize: 0,
+                      priority: 60
+                  },
+                  styles: {
+                      name: 'styles',
+                      test: /\.(sa|sc|c)ss$/,
+                      chunks: 'all',
+                      enforce: true
+                  },
+                  runtimeChunk: {
+                      name: 'manifest'
+                  }
+              }
+          }
+    }
   },
   // 第三方插件配置
   pluginOptions: {
@@ -57,7 +121,7 @@ module.exports = {
   },
   chainWebpack:config=>{
       // 解决动态加载组件出现循环依赖的问题
-      config.plugin('html').tap(args => {
+      config.plugin ('html').tap(args => {
         args[0].chunksSortMode = 'none'
         return args
       })

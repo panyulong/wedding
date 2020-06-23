@@ -66,7 +66,7 @@ export default {
        // ""
        this.imgurl
      );
-     //创建
+     //创建                   
      let material = new THREE.MeshBasicMaterial({
        map: texture
      });
