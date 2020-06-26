@@ -7,15 +7,16 @@ const TerserPlugin = require('terser-webpack-plugin') //代码压缩，生产环
 const resolve = dir=> path.join(__dirname,dir)
 module.exports = {
   // 基本路径
-  publicPath: '/',
+  publicPath: '/wedding/',
   // 输出文件目录
-  outputDir: 'dist',
+  outputDir: 'wedding',
   // eslint-loader 是否在保存的时候检查
   lintOnSave: true,
   // webpack-dev-server 相关配置
   devServer: {
+    disableHostCheck: true,
     open: true,
-    host: 'localhost',
+    host: '192.168.31.130',
     port: 8090,
     https: false,
     hotOnly: true,
@@ -32,32 +33,32 @@ module.exports = {
     },
   },
   configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      config.plugins.push(
-        new BundleAnalyzerPlugin(),
-        new TerserPlugin({
-          cache:true,
-          parallel:true,
-          sourceMap:true,
-          terserOptions:{
-            compress: {
-                drop_debugger: true,
-                drop_console: true,
-            },
-        }
-      })
-    )         
-    }
+    // if (process.env.NODE_ENV === 'production') {
+      // config.plugins.push(
+        // new BundleAnalyzerPlugin(),
+        // new TerserPlugin({
+        //   cache:true,
+        //   parallel:true,
+        //   sourceMap:true,
+        //   terserOptions:{
+        //     compress: {
+        //         drop_debugger: true,
+        //         drop_console: true,
+        //     },
+        // }
+      // })
+    // )         
+    // }
     // 插件
-    config.plugins.push(
-      new CircularDependencyPlugin({
-        exclude: /node_modules/,
-        include: /src/,
-        failOnError: true,
-        allowAsyncCycles: false,
-        cwd: process.cwd()
-      }),
-      new CompressionPlugin({
+    // config.plugins.push(
+      // new CircularDependencyPlugin({
+      //   exclude: /node_modules/,
+      //   include: /src/,
+      //   failOnError: true,
+      //   allowAsyncCycles: false,
+      //   cwd: process.cwd()
+      // }),
+      // new CompressionPlugin({
         // gzip压缩配置
         // filename: '[path].gz[query]',
         // algorithm: 'gzip',
@@ -65,8 +66,8 @@ module.exports = {
         // threshold: 10240, // 对超过244kb的数据进行压缩
         // minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
         // deleteOriginalAssets: true, // 是否删除原文件
-      })
-    )
+      // })
+    // )
     // Loader-rules为空或没有匹配到打包会报错
     // config.module = {
       // rules: [
@@ -78,39 +79,39 @@ module.exports = {
         // ]
       // },
        // 公共代码抽离
-       config.optimization = {
-          splitChunks: {
-              cacheGroups: {
-                  vendor: {
-                      chunks: 'all',
-                      test: /node_modules/,
-                      name: 'vendor',
-                      minChunks: 1,
-                      maxInitialRequests: 5,
-                      minSize: 0,
-                      priority: 100
-                  },
-                  common: {
-                      chunks: 'all',
-                      test: /[\\/]src[\\/]js[\\/]/,
-                      name: 'common',
-                      minChunks: 2,
-                      maxInitialRequests: 5,
-                      minSize: 0,
-                      priority: 60
-                  },
-                  styles: {
-                      name: 'styles',
-                      test: /\.(sa|sc|c)ss$/,
-                      chunks: 'all',
-                      enforce: true
-                  },
-                  runtimeChunk: {
-                      name: 'manifest'
-                  }
-              }
-          }
-    }
+    //    config.optimization = {
+    //       splitChunks: {
+    //           cacheGroups: {
+    //               vendor: {
+    //                   chunks: 'all',
+    //                   test: /node_modules/,
+    //                   name: 'vendor',
+    //                   minChunks: 1,
+    //                   maxInitialRequests: 5,
+    //                   minSize: 0,
+    //                   priority: 100
+    //               },
+    //               common: {
+    //                   chunks: 'all',
+    //                   test: /[\\/]src[\\/]js[\\/]/,
+    //                   name: 'common',
+    //                   minChunks: 2,
+    //                   maxInitialRequests: 5,
+    //                   minSize: 0,
+    //                   priority: 60
+    //               },
+    //               styles: {
+    //                   name: 'styles',
+    //                   test: /\.(sa|sc|c)ss$/,
+    //                   chunks: 'all',
+    //                   enforce: true
+    //               },
+    //               runtimeChunk: {
+    //                   name: 'manifest'
+    //               }
+    //           }
+    //       }
+    // }
   },
   // 第三方插件配置
   pluginOptions: {

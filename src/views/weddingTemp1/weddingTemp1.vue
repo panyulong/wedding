@@ -65,10 +65,10 @@ export default {
     //模板选择时数据
     initTemp(){
          let photoArr = [{
-          photoArr: [{ fileUrl: "/img/weddingTemp1/swiper-1-1.jpg" }],
+          photoArr: [{ fileUrl: "img/weddingTemp1/swiper-1-1.jpg" }],
         },
         { photoArr: [] },
-        { photoArr: [{ fileUrl: "/img/weddingTemp1/swiper-1-2.jpg" }] }
+        { photoArr: [{ fileUrl: "img/weddingTemp1/swiper-1-2.jpg" }] }
       ];
       swiperArr.forEach((item, index) => {
         item.photoArr = photoArr[index].photoArr;

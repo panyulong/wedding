@@ -2,7 +2,7 @@
 <div>
     <div class="flex-box animated fadeIn">
       <div class="temp" v-for="(item,index) in imgList" :key="index" @click="look(index)">
-          <img :src="item.src" alt="">
+          <img :src="$baseUrl+item.src" alt="">
           <div class="look">
             <span>预览</span></div>
       </div>
@@ -16,9 +16,9 @@ export default {
     return {
       // 首页模版列表
       imgList:[
-        {src:'/img/weddingTemp1/1.jpg'},
-        {src:'/img/weddingTemp2/1.jpg'},
-        {src:'/img/weddingTemp3/1.jpg'},
+        {src:'img/weddingTemp1/1.jpg'},
+        {src:'img/weddingTemp2/1.jpg'},
+        {src:'img/weddingTemp3/1.jpg'},
       ],
     };
   },

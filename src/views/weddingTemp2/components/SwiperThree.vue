@@ -6,7 +6,7 @@
             <div class="polygon-box-same polygon3"></div>
             <div class="photo">
               <div class="item">
-                <img :src="itemObj.personImg[0].src" alt="">
+                <img :src="$baseUrl+itemObj.personImg[0].src" alt="">
               </div>
             </div>
       </div>

@@ -5,7 +5,7 @@
          <div class="con-photo">
           <div class="con-photo-line con-photo-line-1"></div>
           <div class="con-photo-line con-photo-line-2">
-             <img  :src="itemObj.personImg[0].src" alt="">
+             <img  :src="$baseUrl+itemObj.personImg[0].src" alt="">
           </div>
         </div>
       </div>

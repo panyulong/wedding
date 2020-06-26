@@ -32,9 +32,9 @@ import Swiper from '@c/swiper/Swiper'
        data(){
             return{
             swiperArr:[
-                { temp:'SwiperOne',personImg:[{src:'/img/weddingTemp1/swiper-1-1.jpg'}],manName:'张志明',womenName:'余春娇'},
+                { temp:'SwiperOne',personImg:[{src:'img/weddingTemp1/swiper-1-1.jpg'}],manName:'张志明',womenName:'余春娇'},
                 { temp:'SwiperTwo'},
-                { temp:'SwiperThree',personImg:[{src:'/img/weddingTemp1/swiper-1-2.jpg'}]},
+                { temp:'SwiperThree',personImg:[{src:'img/weddingTemp1/swiper-1-2.jpg'}]},
                ],
             }
         },
@@ -47,10 +47,4 @@ import Swiper from '@c/swiper/Swiper'
 </script>
 
 <style lang="less" scoped>
-  .swiper-box-bg {
-    position: absolute;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-  }
 </style>

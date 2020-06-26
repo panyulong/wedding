@@ -7,7 +7,7 @@
             <div class="polygon-box-same polygon3"></div>
         </div>
         <div class="photo">
-           <img  :src="itemObj.personImg[0].src" alt="">
+           <img  :src="$baseUrl+itemObj.personImg[0].src" alt="">
         </div>
 
         <div class="flower animated slideInLeft"></div>

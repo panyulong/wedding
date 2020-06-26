@@ -14,8 +14,7 @@ Vue.use(Vant);
 
 import axios from 'axios';
 Vue.prototype.$axios = axios;
-
-
+Vue.prototype.$baseUrl = process.env.BASE_URL
 Vue.config.productionTip = false
 
 new Vue({

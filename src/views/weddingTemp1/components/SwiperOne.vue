@@ -4,7 +4,7 @@
         <div class="flower-bg animated bounceIn"></div>
         <div class="innerBorder">
             <div class="photo">
-                <img :src="itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
+                <img :src="$baseUrl+itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
             </div>
          </div>
         <div class="wedding-name">
