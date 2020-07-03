@@ -17,6 +17,8 @@
 <script>
 import {mapGetters,mapActions,mapMutations} from 'vuex'
 import *  as swiperItem from './components/index'
+import aa from '@/assets/img/weddingTemp1/swiper-1-1.jpg'
+import bb from '@/assets/img/weddingTemp1/swiper-1-2.jpg'
 
 import Swiper from '@c/swiper/Swiper'
     export default {
@@ -32,9 +34,9 @@ import Swiper from '@c/swiper/Swiper'
        data(){
             return{
             swiperArr:[
-                { temp:'SwiperOne',personImg:[{src:'img/weddingTemp1/swiper-1-1.jpg'}],manName:'张志明',womenName:'余春娇'},
+                { temp:'SwiperOne',personImg:[{src:aa}],manName:'张志明',womenName:'余春娇'},
                 { temp:'SwiperTwo'},
-                { temp:'SwiperThree',personImg:[{src:'img/weddingTemp1/swiper-1-2.jpg'}]},
+                { temp:'SwiperThree',personImg:[{src:bb}]},
                ],
             }
         },

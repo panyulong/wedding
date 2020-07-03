@@ -5,7 +5,7 @@
          <div class="con-photo">
           <div class="con-photo-line con-photo-line-1"></div>
           <div class="con-photo-line con-photo-line-2">
-             <img  :src="$baseUrl+itemObj.personImg[0].src" alt="">
+             <img  :src="itemObj.personImg[0].src" alt="">
           </div>
         </div>
       </div>
@@ -34,8 +34,9 @@ export default {
   .tpl-regis{
     width:100vw;
     height: 100vh;
-    background: url('/img/weddingTemp2/bg.png') no-repeat center;
-    background-size: 100% 100%;
+    // background: url('~@/assets/img/weddingTemp2/bg.png') no-repeat center;
+    // background-size: 100% 100%;
+      .bgImage('weddingTemp2/bg.png');
     display: flex;
     flex-direction:column ;
     justify-content: space-around;

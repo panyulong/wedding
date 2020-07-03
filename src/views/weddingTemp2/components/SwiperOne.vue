@@ -7,7 +7,7 @@
             <div class="polygon-box-same polygon3"></div>
         </div>
         <div class="photo">
-           <img  :src="$baseUrl+itemObj.personImg[0].src" alt="">
+           <img :src="itemObj.personImg[0].src" alt="">
         </div>
 
         <div class="flower animated slideInLeft"></div>
@@ -50,8 +50,9 @@ export default {
   flex-direction: column;
   width:100vw;
   height:100vh;
-   background: url('/img/weddingTemp2/bg.png') no-repeat center;
-   background-size: 100% 100%;
+  //  background: url('/img/weddingTemp2/bg.png') no-repeat center;
+  //  background-size: 100% 100%;
+   .bgImage('weddingTemp2/bg.png');
   .top-part{
     width:100vw;
     height: 66vh;
@@ -76,8 +77,9 @@ export default {
       }
     }
       .flower{
-        background: url('/img/weddingTemp2/flower.png') no-repeat center;
-        background-size: 100% 100%;
+        // background: url('/img/weddingTemp2/flower.png') no-repeat center;
+        // background-size: 100% 100%;
+         .bgImage('weddingTemp2/flower.png');
         position: absolute;
         bottom:-20px;
         left: 40px;

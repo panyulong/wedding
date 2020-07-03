@@ -214,8 +214,7 @@ export default {
     width:100%;
     height: 100%;
     display: block;
-    background: url('/img/icon-music.png') no-repeat center;
-    background-size: 100% 100%;
+    .bgImage('icon-music.png')
   }
 }
 .next-btn {

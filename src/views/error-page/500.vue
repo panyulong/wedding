@@ -4,6 +4,7 @@
 
 <script>
 import errorContent from './error-content.vue'
+import error500 from '@/assets/img/error-page/error-500.svg'
 export default {
   name: 'error_500',
   components: {
@@ -11,7 +12,7 @@ export default {
   },
   data () {
     return {
-        src: '/img/error-page/error-500.svg'
+        src: error500
     }
   }
 }

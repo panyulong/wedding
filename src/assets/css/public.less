@@ -1,9 +1,13 @@
 @import './baseColor.less';
 
-@imgUrl:'/wedding/';
+// @imgUrl:'/web/wedding/';
 
 // 背景图片
+// .bgImage(@url){
+//     background: url("@{imgUrl}@{url}") no-repeat center;
+//     background-size:100% 100%;
+// }
 .bgImage(@url){
-    background: url("@{imgUrl}@{url}") no-repeat center;
+    background: url("~@/assets/img/@{url}") no-repeat center;
     background-size:100% 100%;
 }

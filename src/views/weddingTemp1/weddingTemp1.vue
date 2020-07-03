@@ -17,8 +17,9 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import * as swiperItem from "./components/index";
-
 import Swiper from "@c/swiper/Swiper";
+import aa from '@/assets/img/weddingTemp1/swiper-1-1.jpg'
+import bb from '@/assets/img/weddingTemp1/swiper-1-2.jpg'
 
  let swiperArr = [
       { temp: "SwiperOne" },
@@ -49,14 +50,14 @@ export default {
     const showTemp = this.$route.query.showTemp;
     const userId = this.$route.query.userId;
     //选择模板时，展示默认数据
-    if (showTemp) {
+    // if (showTemp) {
         this.initTemp()
-    } else {
+    // } else {
     //   不是选择模板状态，且url没有userId不做展示  
-      if (userId) {
-          this.getUserByIdFn(userId)
-      }
-    }
+      // if (userId) {
+          // this.getUserByIdFn(userId)
+      // }
+    // }
   },
   methods: {
     ...mapActions({
@@ -65,10 +66,10 @@ export default {
     //模板选择时数据
     initTemp(){
          let photoArr = [{
-          photoArr: [{ fileUrl: "img/weddingTemp1/swiper-1-1.jpg" }],
+          photoArr: [{ fileUrl: aa }],
         },
         { photoArr: [] },
-        { photoArr: [{ fileUrl: "img/weddingTemp1/swiper-1-2.jpg" }] }
+        { photoArr: [{ fileUrl: bb }] }
       ];
       swiperArr.forEach((item, index) => {
         item.photoArr = photoArr[index].photoArr;

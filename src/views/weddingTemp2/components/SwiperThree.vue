@@ -6,7 +6,7 @@
             <div class="polygon-box-same polygon3"></div>
             <div class="photo">
               <div class="item">
-                <img :src="$baseUrl+itemObj.personImg[0].src" alt="">
+                <img :src="itemObj.personImg[0].src" alt="">
               </div>
             </div>
       </div>
@@ -35,8 +35,7 @@ export default {
   .tpl-regis{
     width:100vw;
     height: 100vh;
-    background: url('/img/weddingTemp2/bg.png') no-repeat center;
-    background-size: 100% 100%;
+    .bgImage('weddingTemp2/bg.png');
     display: flex;
     flex-direction:column ;
     justify-content: space-around;

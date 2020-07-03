@@ -64,8 +64,7 @@ export default {
     .crown{
       width: 70%;
       height: 45px;
-      background: url('/img/crown.png') no-repeat center;
-      background-size:100% 100% ;
+      .bgImage('crown.png')
     }
   }
  

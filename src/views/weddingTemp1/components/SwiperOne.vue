@@ -4,7 +4,7 @@
         <div class="flower-bg animated bounceIn"></div>
         <div class="innerBorder">
             <div class="photo">
-                <img :src="$baseUrl+itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
+                <img :src="itemObj.photoArr && itemObj.photoArr[0].fileUrl" alt="">
             </div>
          </div>
         <div class="wedding-name">
@@ -47,8 +47,7 @@ export default {
     width:calc(100vw - 40px);
     height: 50vh;
     margin:12vh 30px;
-    background: url('/img/weddingTemp1/innerBorder.png') no-repeat center;
-    background-size: 100% 100%;
+   .bgImage('weddingTemp1/innerBorder.png');
     .photo{
       height:100%;
       width:100%;
@@ -63,20 +62,20 @@ export default {
     left:0;
     width:100vw;
     height: 76vh;
-    background: url('/img/weddingTemp1/outBorder.png') no-repeat center;
-    background-size: 100% 100%;
+    .bgImage('weddingTemp1/outBorder.png');
 }
   .flower-bg{
-    background: url('/img/weddingTemp1/flower-bg.png') no-repeat center;
-    background-size: 100% 100%;
+    .bgImage('weddingTemp1/flower-bg.png');
     position: absolute;
     width:100%;
     height: 40%;
     bottom:40px;
   }
 .wedding-name{
-  background: url('/img/weddingTemp1/wedNameB.png') no-repeat center rgba(255, 255, 255, .7);
-  background-size: 100% 100%;
+  // background: url('/img/weddingTemp1/wedNameB.png') no-repeat center rgba(255, 255, 255, .7);
+  // background-size: 100% 100%;
+  .bgImage('weddingTemp1/wedNameB.png');
+  background-color: rgba(255, 255, 255, .7) ;
 }
 }
   @keyframes zoomRotateIn {

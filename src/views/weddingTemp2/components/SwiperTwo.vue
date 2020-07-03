@@ -54,8 +54,7 @@ export default {
         right:0;
         width:500px;
         height: 400px;
-        background: url('/img/weddingTemp2/flower2.png') no-repeat center;
-        background-size: 100% 100%;
+         .bgImage('weddingTemp2/flower2.png');
       }
     .polygon-box{
       position: absolute;
@@ -75,8 +74,7 @@ export default {
       padding: 50px;
       color: @tplOneColor;
       font-size: 26px;
-      background:url('/img/weddingTemp2/bg.png') no-repeat center;
-      background-size: 100% 100%;
+        .bgImage('weddingTemp2/bg.png');
       box-shadow: -5px 5px 10px #666;
       p{
         margin-top: 10px;
@@ -85,8 +83,7 @@ export default {
     .crown{
       width: 70%;
       height: 45px;
-      background: url('/img/crown.png') no-repeat center;
-      background-size:100% 100% ;
+     .bgImage('crown.png');
     }
  
    }

@@ -8,19 +8,17 @@ import weddingTemp3 from '@/views/weddingTemp3/weddingTemp3'
 import infoAdd from '@/views/infoAdd/infoAdd'
 import thank from '@/views/thank/thank'
 
-import car from '@/views/car/car'
-
 import noFound from '@/views/error-page/404'
  
 Vue.use(Router)
 
 export default new Router({
-    mode:'history',
+    // mode:'history',
     base:process.env.BASE_URL,
     routes: [
         {
             path: '/',
-            redirect: '/home/infoAdd'
+            redirect: '/home/weddingTemp1'
         },
         {
             path:'/home',
@@ -54,13 +52,6 @@ export default new Router({
             name:'感谢页',
             component:thank
         },
-
-        {
-            path:'/car',
-            name:'car',
-            component:car
-        },
-
         { 
             path: '*', 
             name:'找不到页面',

@@ -49,15 +49,17 @@ export default {
       height: 90vh;
       margin: 5vh auto;
       padding: 5vh 5vw;
-      background: url('/img/weddingTemp3/xingxing2.png') no-repeat center;
-      background-size: 100% 100%;
+      // background: url('/img/weddingTemp3/xingxing2.png') no-repeat center;
+      // background-size: 100% 100%;
+      .bgImage('weddingTemp3/xingxing2.png');
       overflow: hidden;
     }
     &-flex{
       width:100%;
       height:100%;
-      background: url('/img/weddingTemp3/door.png') no-repeat center;
-      background-size: 100% 100%;
+      // background: url('/img/weddingTemp3/door.png') no-repeat center;
+      // background-size: 100% 100%;
+       .bgImage('weddingTemp3/door.png');
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -73,8 +75,9 @@ export default {
     .crown{
       width: 70%;
       height: 45px;
-      background: url('/img/crown.png') no-repeat center;
-      background-size:100% 100% ;
+      // background: url('/img/crown.png') no-repeat center;
+      // background-size:100% 100% ;
+      .bgImage('crown.png');
     }
  
    }

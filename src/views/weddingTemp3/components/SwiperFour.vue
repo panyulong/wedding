@@ -2,15 +2,15 @@
   <div>
     <div class="left-ct">
       <div class="photo-box img1">
-        <img :src="$baseUrl+imgData[0].src"/>
+        <img :src="imgData[0].src"/>
       </div>
    </div>
    <div class="right-ct">
     <div class="photo-box img2 animated zoomInLeft">
-      <img :src="$baseUrl+imgData[1].src"/>  
+      <img :src="imgData[1].src"/>  
    </div>
    <div class="photo-box img3 animated zoomInRight">
-        <img :src="$baseUrl+imgData[2].src"/>
+        <img :src="imgData[2].src"/>
     </div>
 </div>
   </div>
