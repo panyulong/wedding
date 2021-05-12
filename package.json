@@ -20,7 +20,7 @@
     "postcss-url": "^8.0.0",
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
-    "swiper": "^5.4.1",
+    "swiper": "^6.5.1",
     "three": "^0.117.1",
     "vant": "^2.8.3",
     "vue": "^2.6.10",
